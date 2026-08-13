@@ -64,3 +64,4 @@ if prompt := st.chat_input("Ask a question..."): #The text on the input bar
         response = st.write(response)
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+    #openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
