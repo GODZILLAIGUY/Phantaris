@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_push_notifications import send_push
 from datetime import datetime
 
 CURRENT_YEAR = datetime.now().year #Current Year
@@ -7,6 +8,21 @@ CURRENT_DATE = datetime.now().strftime("%B %d, %Y") #Current Date
 st.title("Phantaris :rainbow[𖤍]") #App name/main title
 
 st.caption("Phantaris is not human. It may make mistakes")
+
+st.title("Notification Demo")
+
+if st.button("Trigger System Notification"):
+    # This requests permission if not already granted, then sends the alert
+    (
+        send_push(title="Alert", body="Process finished")
+    )
+
+with st.sidebar:
+    if st.button("Login"):
+        st.write("Init Login")
+        "[View the source code](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py)"
+        "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
+
 
 # Pill-shaped chat input
 st.markdown("""
